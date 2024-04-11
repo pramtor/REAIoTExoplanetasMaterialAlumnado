@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="exe_effects.css" />
+<link rel="stylesheet" type="text/css" href="exe_highlighter.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>B. Un tracker IoT del Sistema Solar | IoT Exoplanetas </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Pedro Jesús Ramón Torregrosa" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.8.1 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="exe_effects.js"></script>
+<script type="text/javascript" src="exe_highlighter.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-199"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">IoT Exoplanetas</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Escondidos en la luz</a></li>
+   <li><a href="1_el_internet_de_las_cosas.html" class="daddy">1. El internet de las cosas</a>
+   <ul class="other-section">
+      <li><a href="a_qu_es_iot_y_para_qu_sirve.html" class="no-ch">A. ¿Qué es IoT y para qué sirve?</a></li>
+   </ul>
+   </li>
+   <li><a href="2_exoplanetas.html" class="daddy">2. Exoplanetas</a>
+   <ul class="other-section">
+      <li><a href="a_mtodos_de_deteccin_de_exoplanetas.html" class="no-ch">A. Métodos de detección de exoplanetas</a></li>
+      <li><a href="b_conociendo_un_exoplaneta.html" class="no-ch">B. Conociendo un exoplaneta</a></li>
+      <li><a href="c_reflexiona_sobre_lo_que_has_aprendido.html" class="no-ch">C. Reflexiona sobre lo que has aprendido</a></li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="3_iot__universe.html" class="current-page-parent daddy">3. IoT &amp; Universe</a>
+   <ul>
+      <li><a href="a_el_sistema_solar.html" class="no-ch">A. El Sistema Solar</a></li>
+      <li id="active"><a href="b_un_tracker_iot_del_sistema_solar.html" class="active no-ch">B. Un tracker IoT del Sistema Solar</a></li>
+      <li><a href="c_tracker_y_sistemas_exoplanetarios.html" class="no-ch">C. Tracker y Sistemas Exoplanetarios</a></li>
+   </ul>
+   </li>
+   <li><a href="4_iot_y_seguridad.html" class="no-ch">4. IoT y Seguridad</a></li>
+   <li><a href="5_presenta_tu_trabajo.html" class="no-ch">5. Presenta tu trabajo</a></li>
+   <li><a href="6_cmo_te_ha_ido.html" class="no-ch">6. ¿Cómo te ha ido?</a></li>
+   <li><a href="crditos.html" class="no-ch">Créditos</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="a_el_sistema_solar.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><span class="page-counter">Página <strong>10</strong> de <strong>15</strong></span> <span class="sep">| </span><a href="c_tracker_y_sistemas_exoplanetarios.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">B. Un tracker IoT del Sistema Solar</h1></header>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id871">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">1. Construyendo un tracker con Arduino</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta871_964_2" class="block iDevice_content">
+<div class="exe-text"><figure class="exe-figure exe-image float-left license-CC-BY-SA" style="width: 399px; text-align: center;"><img src="512px-ArduinoLogo_.svg.png" alt="Logo Arduino" title="Logo Arduino" width="399" height="305" hspace="10" style="margin-right: 10px; margin-left: 10px;" />
+<figcaption class="figcaption"><a href="https://fabriziogarda.com/Arduino-Pro" target="_blank" class="author" rel="noopener">Fabrizio Garda</a>. <a href="https://fabriziogarda.com/Arduino-Pro" target="_blank" class="title" rel="noopener"><em>Logo Arduino</em></a> <span class="license"><span class="sep">(</span><a href="http://creativecommons.org/licenses/?lang=es" rel="license nofollow noopener" target="_blank" title="Creative Commons BY-SA">CC BY-SA</a><span class="sep">)</span></span></figcaption>
+</figure>
+<p dir="ltr"><span>Aunque durante todo la historia de la humanidad, el hombre siempre ha mirado a las estrellas no fue hasta la desarrollo del programa Sputnik en los años 60 cuando se permitió soñar con ir más allá de la Tierra, colonizar otros mundos. Hoy, los humanos se aventuran cada vez más en el espacio; tenemos rovers en Marte,  sondas espaciales camino del espacio interestelar e incluso los planes de construir un asentamiento humano en la Luna. </span></p>
+<p dir="ltr"><span>Con este proyecto, desafortunadamente, no nos aventuraremos al espacio nosotros mismos pero sí que creamos un dispositivo capaz de leer y recuperar diferentes datos sobre los planetas del Sistema Solar y los satélites que los orbitan para representar sus posiciones alrededor de nuestra estrella y representarlos, en tiempo real en una pantalla TFT/LCD y a todo color. Nuestro aliado, como en tantas ocasiones, será Arduino y nuestros protagonistas del IES Gregorio Salvador interesados en la programación y en dar el salto de ser capaces de recrear este mismo proyecto pero con un sistema exoplanetario.</span></p>
+<p dir="ltr"><span>El objetivo de este proyecto es construir un Tracker de los objetos (planetas y algunos objetos importantes) del Sistema Solar utilizando Arduino para acceder a la información sobre ellos. En este caso, dado que la idea es que vosotros hagáis lo mismo para sistemas exoplanetarios debereis prestar atención a las tres fases del proyecto:</span></p>
+<ol>
+<li dir="ltr"><span>Creación y manejo de API's.</span></li>
+<li dir="ltr"><span>Análisis JSON </span></li>
+<li dir="ltr"><span>Creación de una interfaz para navegar a través de la información aportada en un pantalla táctil o mediante un sistema de botones que modificaran la información mostrada en pantalla.</span></li>
+</ol>
+<p><span>Pero veamos en qué consiste este proyecto y que vamos a hacer exactamente</span></p>
+<div class="exe-fx exe-carousel">
+<h2>Objetivos</h2>
+<p><img src="Icon_essence.svg.png" style="float: left; margin-right: 50px; margin-left: 10px;" width="256" height="210" alt="Icono que representa los objetivos del proyecto" title="Objetivos" /></p>
+<p>Se trata de un proyecto ambicioso pero cuando acabemos sabrás:</p>
+<ul>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Trabajar con una conexión WIFI</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Trabajar con una API abierta</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Conocer cómo hacer peticiones y obtener respuestas de una API</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Aprender a tratar datos entrantes con Java (JSON)</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Ser capaces de acceder a  diferentes tipos de datos accesible en un archivo JSON</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Crear un array de caracteres a partir de los datos de un archivo JSON</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Ser capaces de mostrar en pantalla una colección de datos recogidos en un archivo JSON</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Ser capaces de crear y modificar los archivos de una API</span></p>
+</li>
+</ul>
+<h2>¿Qué vamos a necesitar?</h2>
+<figure class="exe-figure exe-image float-left license-CC-BY-SA" style="width: 200px;"><img src="512px-Ejibon_Online_Shopping_Icon.jpeg" alt="Bolsa de la compra" title="shopping" width="200" height="209" />
+<figcaption class="figcaption"><span class="author">Almarufsunny</span> <span class="license"><span class="sep">(</span><a href="http://creativecommons.org/licenses/?lang=es" rel="license nofollow noopener" target="_blank" title="Creative Commons BY-SA">CC BY-SA</a><span class="sep">)</span></span></figcaption>
+</figure>
+<p><span>A continuación detallamos brevemente los componentes necesarios para poder llevar a cabo este proyecto</span></p>
+<ul>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><strong>Arduino MKR WiFi 1010</strong></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Pantalla TFT  (También es válida una pantalla OLED 128x64)</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>2 Botones</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Cable Micro USB</span></p>
+</li>
+</ul>
+<p></p>
+<p></p>
+<p>De hecho el montaje que vamos a realizar recrea el diseñado en el kit Opla de Arduino,  que aparece bajo estas líneas, pero en una versión más barata y reducida (aunque estéticamente menos elegante)</p>
+<p><img src="Opla.jpeg" alt="Kit Opla de Arduino" title="Kit Opla de Arduino" width="740" height="280" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+<p>Aunque en realidad el nuestro tendrá un aspecto más parecido al siguiente:</p>
+<p><img src="Montaje_Arduino.png" alt="Montaje Arduino Tracker" title="Montaje Arduino Tracker" width="701" height="389" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+<h2>Arduino e IoT: La placa MKR wifi 1010</h2>
+<figure class="exe-figure exe-media" style="float: left; margin-right: 10px; margin-left: 10px;"><iframe width="280" height="157" src="https://www.youtube.com/embed/bp7cSDMLxDk" data-mce-fragment="1"></iframe></figure>
+<p dir="ltr"><span>La necesidad del uso de la placa mkr wifi 1010 es debida a que no todas las placas wifi son compatibles para IoT. Las razones de esto se escapan de los motivos por los que se hace esta web y también del nivel de conocimientos a quien va dirigido. De hecho, según la propia </span><a href="https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started"><span>web de arduino</span></a><span>, las placas compatibles son: </span>MKR 1000 WiFi y WiFi 1010, MKR WAN 1300 y 1310, MKR GSM 1400, MKR NB 1500, NANO RP2040 Connect, NANO 33 IoT y Portenta H7.</p>
+<p>Junto a estas líneas <a href="https://twitter.com/dcuartielles?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" rel="noopener">David Cuartielles</a> explica el funcionamiento de la MKR WiFi 1010 con un interesante proyecto para construir un calendario espacial. Además, puede verse el esquema de montaje necesario para para hacer nuestro proyecto.</p>
+<p></p>
+<h2>¿Qué más podremos hacer con Arduino &amp; IoT?</h2>
+<p dir="ltr"><span>Las posibilidades que nos brinda esta placa MRK Wifi 1010 son muy amplias y podréis encontrar ejemplos y código  para desarrollar otros proyectos utilizando los mismos componentes. Puedes ver algunos de estos proyectos (y descargar un ejemplo de código operativo) haciendo clic en los botones que aparecen bajo estas líneas.</span></p>
+<div class="main-container" style="text-align: center;"><a href="https://opla.arduino.cc/opla/module/iot-starter-kit-maker/lesson/06-smart-garden" style="border-radius: 5px; padding: 10px; font-family: Arial; background-color: #555555; color: #ffffff; text-decoration: none;"> <strong>Jardín inteligente</strong></a>                <a href="https://opla.arduino.cc/opla/module/iot-starter-kit-maker/lesson/02-personal-weather-station" style="border-radius: 5px; padding: 10px; font-family: Arial; background-color: #555555; color: #ffffff; text-decoration: none;"> <strong> Estación meteorológica </strong> </a>                <a href="https://opla.arduino.cc/opla/module/iot-starter-kit-maker/lesson/05-inventory-control" style="border-radius: 5px; padding: 10px; font-family: Arial; background-color: #555555; color: #ffffff; text-decoration: none;"> <strong> Una despensa inteligente </strong> </a></div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id879">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">2. API's para qué os quiero</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta879_972_2" class="block iDevice_content">
+<div class="exe-text"><figure class="exe-figure exe-image float-left license-CC-BY-SA" style="width: 400px;"><img src="Venus_API.png" alt="Logo Arduino" title="Logo Arduino" width="400" height="559" hspace="10" style="margin-right: 10px; margin-left: 10px;" /></figure>
+<p>Hace un rato os comenté que íbamos a utilizar una API veamos para qué.</p>
+<p dir="ltr"><span>Podemos decir que una API, acrónimo de </span><span>Application Programming Interface</span><span>, es un conjunto de definiciones y protocolos que se utiliza para desarrollar e integrar el software de las aplicaciones. Las APi's permite establecer un canal de comunicación entre diferentes productos y servicios a través de internet.  </span></p>
+<p dir="ltr"><span>Una de las formas más sencillas de hacer una petición de información a través de la red es realizar una solicitud tipo "get" que básicamente envía una petición de información (en nuestro caso) a un sistema a través de internet. En este proyecto esas peticiones se harán al sitio web </span><a href="https://api.le-systeme-solaire.net/"><span>api.le-systeme-solaire.net</span></a><span> que es una web en la que se encuentra recopilados diferentes datos de objetos del Sistema Solar. Pero claro, para saber qué tipo de información nos va a enviar el sistema a nuestra petición debemos conocer cuál es la estructura de los datos recopilados en esa API ya que si solo hacemos una petición al sitio web anterior, su respuesta será todo el código HTML de la página y eso...no es interesante directamente. </span></p>
+<p dir="ltr"><span>Lo que vamos a hacer es almacenar todos los datos que nos ha dado la API en un JSON (JavaScript Object Notation) que permite darle un formato mínimo que contiene datos. No hay colores, cuadros o imágenes, solo texto comprimido que es mucho más rápido de solicitar y es ideal para usar con un Arduino , que no tiene mucha potencia de procesamiento.</span></p>
+<p dir="ltr"><span>Vamos a ver un ejemplo, para lo que solo necesitaremos la dirección web correspondiente a ese objeto en la API. Vamos a solicitar, por ejemplo, los datos de Venus, para ello escribe en tu navegador:</span></p>
+<p dir="ltr"><a href="https://api.le-systeme-solaire.net/rest/bodies/venus"><span>https://api.le-systeme-solaire.net/rest/bodies/venus</span></a></p>
+<p dir="ltr"><span>Si abrimos la url correspondiente, el aspecto del archivo es el que aparece junto a estas líneas.</span><span></span></p>
+<p dir="ltr"><span></span></p>
+<p>Ahora bien, si quieres acceder a la API <a href="https://api.le-systeme-solaire.net/" target="_blank" rel="noopener">api.le-systemesolaire.net</a> haz clic sobre la imagen que aparece bajo estas líneas.</p>
+<figure class="exe-figure exe-image position-center" style="width: 801px; text-align: center;"><a href="https://api.le-systeme-solaire.net/" target="_blank" rel="noopener"><img src="API_Sistema_Solar.png" alt="La imagen muestra la portada de la API pública con datos del sistema solar." title="L'OpenData du Système Solaire" width="801" height="391" hspace="auto" style="display: block; margin-left: auto; margin-right: auto;" /></a>
+<figcaption class="figcaption"><a href="https://api.le-systeme-solaire.net/" target="_blank" class="title" rel="noopener"><em>L'OpenData du Système Solaire</em></a></figcaption>
+<span></span></figure></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id878">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">3. Paso a paso: IoTracker Sistema Solar</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta878_971_2" class="block iDevice_content">
+<div class="exe-text"><p dir="ltr"><strong>Importante:</strong><span> Este proyecto no necesita ningún tipo de sensor ni nada parecido ya que extraemos toda la información de internet. El módulo responsable de la conexión a internet será el MKR WiFi 1010 y lo haremos desde cero a nuestra red Wifi local para lo que usaremos la </span><a href="https://www.arduino.cc/en/Reference/WiFiNINA"><span>librería WiFiNINA</span></a><span>, que ya alberga varias funciones de conectividad WiFi. Ojo que solo con esa librería seremos capaces de conectar nuestra placa a la red y configurar todo el programa para poder extraer información de la red a través de API's.</span></p>
+<p dir="ltr"><span>Si observamos con atención el formato del archivo de salida de nuestra API's vemos que es muy sencilla. En el código aparecen diferentes objetos etiquetados como "id", "gravity" y “discoveredBy”, que están referidos específicamente al objeto sobre el que se ha realizado la petición (en nuestro caso Venus). Como vemos,  nuestro archivo de datos puede contener tanto información científica, normalmente de carácter numérico, o histórica que, por lo general, tendrá formato "texto". </span></p>
+<p dir="ltr"><span>Es decir, que cuando hacemos una petición del tipo "get" a nuestra API a través de la dirección específica del objeto en cuestión, todos los datos son enviados a nuestra placa Arduino MKR WiFi 1010 lo que significa que podremos recuperar toda esta información y mostrarla en pantalla.</span></p>
+<p dir="ltr"><span>Es importante tener en cuenta lo mencionado anteriormente porque para los sistemas exoplanetarios Trappist y Kepler 296 construiremos API's similares a la anterior pero utilizando una hoja de cálculo de Google y un Google Script para transformarla en API y permitir la conectividad de nuestro arduino aunque la estructura será muy similar a la anterior.</span></p>
+<p dir="ltr"><span>Pero vayamos <strong>paso a paso</strong>.</span></p>
+<div class="exe-fx exe-carousel">
+<h2>Antes de empezar</h2>
+<p>Lo ideal, antes de comenzar a programar es crear un diagrama en el que estén claros los pasas que vamos a seguir de cara a diseñar nuestro Tracker del Sistema Solar. Hemos tratado de recopilar esa información general a través del siguiente diagrama:</p>
+<p><img src="Esquema_Tracker_Sistema_Solar.png" alt="Infografía en la que se recogen las distintas fases del proyecto Tracker Sistema Solar" title="Esquema del proyecto Tracker Sistema Solar" width="800" height="340" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+<p>Es importante que recuerdes este esquema porque es el mismo que seguiremos cuando realices tu tracker de un sistema exoplanetario.</p>
+<h2>Primeros pasos: Cargar librerías del proyecto y conexión a internet</h2>
+<p>Lo primero que tenemos que tener en cuenta es que, cuando programamos un Arduino, estamos utilizando el lenguaje de programación <strong>c++</strong>.</p>
+<p>En primer lugar debemos cargar las librerías necesarias tanto para conectarse a la red como a crear las estructuras JSON. Esas dos librerías son WiFiNINA y Arduino_JSON. Estas dos librerías nos permitirán crear una conexión a Wi-Fi, realizar una solicitud GET y analizar el JSON entrante. Por otro lado necesitaremos crear el objeto portador y cargaremos otra librería para manejar los botones y navegar por el display.</p>
+<p dir="ltr" class="CDt4Ke zfr3Q">Una vez que hemos cargado las librerías tenemos que conectarnos a nuestra red WiFi para lo que pondremos la red y la contraseña de red (nuestras credenciales) entre comillas. Posteriormente generaremos diferentes arrays, en nuestro caso seis, que usaremos para almacenar la información que nos llegue de la<span> </span><span class=" aw5Odc"><a class="XqQF9c" href="http://www.google.com/url?q=http%3A%2F%2Fapi.le-systeme-solaire.net&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw0XtyHyqyYfDpzg-Zubsdcs" target="_blank" rel="noopener">API</a></span>.</p>
+<p dir="ltr" class="CDt4Ke zfr3Q">Por último crearemos una cadena, que hemos denominado "objects" en las que almacenaremos los nombres de los diferentes objetos del sistema solar que encontraremos en la<span> </span><span class=" aw5Odc"><a class="XqQF9c" href="http://www.google.com/url?q=http%3A%2F%2Fapi.le-systeme-solaire.net&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw0XtyHyqyYfDpzg-Zubsdcs" target="_blank" rel="noopener">API</a></span><span> </span>sobre los que haremos peticiones tipo GET. Algunos de esos objetos son, Júpiter, Marte o la Tierra. Es importante tener en cuenta que dado que la<span> </span><span class=" aw5Odc"><a class="XqQF9c" href="http://www.google.com/url?q=http%3A%2F%2Fapi.le-systeme-solaire.net&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw0XtyHyqyYfDpzg-Zubsdcs" target="_blank" rel="noopener">API</a></span><span> </span>es francesa los nombres de dichos cuerpos celestes están en francés y debemos respetar esta notación para no tener problemas.</p>
+<p dir="ltr" class="CDt4Ke zfr3Q">A continuación crearemos una cadena de caracteres en la que almacenaremos toda la información proporcionada por la<span> </span><span class=" aw5Odc"><a class="XqQF9c" href="http://www.google.com/url?q=http%3A%2F%2Fapi.le-systeme-solaire.net&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw0XtyHyqyYfDpzg-Zubsdcs" target="_blank" rel="noopener">API</a></span><span> </span>a través de su URL, es decir,<span> </span><span>almacenaremos la URL del servidor al que nos conectaremos.</span></p>
+<p dir="ltr" class="CDt4Ke zfr3Q">Por últimos debemos establecer la conexión con la<span> </span><span class=" aw5Odc"><a class="XqQF9c" href="http://www.google.com/url?q=http%3A%2F%2Fapi.le-systeme-solaire.net&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw0XtyHyqyYfDpzg-Zubsdcs" target="_blank" rel="noopener">API</a></span><span> </span>creando un cliente que usaremos para realizar las peticiones GET.</p>
+<p dir="ltr" class="CDt4Ke zfr3Q">Bajo estas líneas encontrarás el código escrito de acuerdo a todo lo que hemos comentado anteriormente.</p>
+<div class="highlighted-code code-style-2 language-cpp line-numbers">
+<div>
+<pre><code>//  Cargamos las librerías necesarias
+
+#include &lt;WiFiNINA.h&gt;		//  librería para conexión WiFI
+#include &lt;Arduino_JSON.h&gt;	//  librería Almacenamiento JSON
+#include &lt;Arduino_MKRIoTCarrier.h&gt;//  librería botones capacitivos
+MKRIoTCarrier carrier;
+
+//  Nos conectamos a la red WiFi
+
+char ssid[] = "";  //  Pon entre las comillas el nombre de tu red WiFi
+char pass[] = "";  //  Pon entre las comillas la contraseña de tu red WiFi
+
+//  Creamos cadenas (núm. según la info recogida en la API) sobre info objetos
+
+String bodyName;   // Es una variable String por ser una cadena de texto
+String planet;     // Es una variable String por ser una cadena de texto
+String explorerName;// Es una variable String por ser una cadena de texto
+String explorerDate;// Es una variable String por ser una cadena de texto
+double gravity;     // Es una variable double por ser una variable numérica
+double density;     // Es una variable double por ser una variable numérica
+
+//  Creamos cadena con el nombre de los diferentes objetos dados por la API
+
+char *planets[] = {"jupiter", "io", "europe",
+                  "callisto", "mars", "mercury",
+                  "venus", "terre", "uranus", "neptune",
+                  "saturne", "phoebe", "ganymede", "titan",
+                  "pluton", "triton", "titania", "charon", "ariel",
+                  "tethys", "protee"
+                 };
+int status = WL_IDLE_STATUS;
+char server[] = "api.le-systeme-solaire.net";
+
+//  Creamos cliente que usaremos para hacer la petición GET
+
+WiFiClient client;</code></pre>
+</div>
+</div>
+<p dir="ltr" class="CDt4Ke zfr3Q">Es <strong>importante</strong> notar que:</p>
+<ul class="n8H08c UVNKR">
+<li dir="ltr" class="TYR86d zfr3Q">
+<p dir="ltr" class="CDt4Ke zfr3Q">Podemos añadir tantas cadenas de caracteres sobre información de los objetos a los que vamos a hacer peticiones como queramos siempre que estén recogidas en las API's que utilicemos.</p>
+</li>
+<li dir="ltr" class="TYR86d zfr3Q">
+<p dir="ltr" class="CDt4Ke zfr3Q">Deberemos cambiar la información recopilada en el caso de los sistemas exoplanetarios.</p>
+</li>
+</ul>
+<h2>El setup() y el loop() de Arduino</h2>
+<p>Como ya sabemos, todos los códigos arduino tienen un setup y un loop. En primer lugar escribiremos el código para el setup. </p>
+<p dir="ltr"><span>En el </span><span>setup()</span><span>, realizaremos las siguientes acciones:</span></p>
+<ol>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Inicializaremos la comunicación por el puerto serie.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Nos conectaremos a la red WiFi con los datos proporcionados anteriormente que los proporcionaremos a través de </span><span>WiFi.begin(ssid, pass)</span><span>. </span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Por último inicializaremos el display y los botones con los que navegaremos por él.</span></p>
+</li>
+</ol>
+<p><span>En el loop crearemos una función llamada </span><span>planetUpdate()</span><span> para hacer la petición GET y recibir la información de la API.</span></p>
+<p><span>Puedes ver el ejemplo del código bajo estas línea.</span></p>
+<div class="highlighted-code code-style-2 language-cpp line-numbers">
+<div>
+<pre><code>// Creamos el void setup()
+void setup() {
+ //Inicializamos serial y esperamos a la apertura del puerto
+ Serial.begin(9600);
+ while (!Serial);
+// Intentamos acceder a la conexión WiFi. Mensaje típico "Attempting to connect to SSID"
+ while (status != WL_CONNECTED) {
+ Serial.print("Intentando conectar a SSID: "); 
+ Serial.println(ssid);
+// Intentamos conectarnos a la WiFi con los datos que le hemos dado
+ status = WiFi.begin(ssid, pass); 
+ // Esperamos 1s para la conexión 1s=1000ms:
+   delay(1000);
+ }
+// Conexión con éxito. Imprimimos mensaje típico "Connected to wifi"
+ Serial.println("Conectado a red wifi");
+ 
+ //Ahora inicializamos los botones capacitivos y el display en el que vamos a mostrar la info
+ CARRIER_CASE = false; // Si queremos utilizar la carcasa de plástica deberemos marcar =true
+ carrier.begin();
+ carrier.display.setRotation(0);
+}</code></pre>
+</div>
+</div>
+<p dir="ltr"><span>La segunda parte del código de arduino, el loop, en este caso es básicamente un código de navegación el display. Utilizaremos los botones para mostrar diferente información asociada al cuerpo celeste en cuestión y refrescando el propio display para poder actualizar la información que muestra.</span></p>
+<p dir="ltr"><span>También utilizaremos uno de los botones para que, cuando sea pulsado, ejecute la función </span><span>planetUpdate()</span><span> que seleccionará aleatoriamente (si nos interesa) un cuerpo celeste del sistema solar y actualizará la información asociada a cada uno de los botones para referirla a él.</span></p>
+<p dir="ltr"><span>Dado que los botones que nosotros hemos utilizado permiten asociarles un color diferente, utilizaremos esta característica para distinguir unos de otros y tener claro que tipo de información se reflejará en pantalla cuando los pulsemos.</span></p>
+<div class="highlighted-code code-style-2 language-cpp line-numbers">
+<div>
+<pre><code>// Creamos el void loop()    
+void loop() {
+ delay(100);
+
+/* Ahora inicializamos los botones de navegación del display que nos permitirán seleccionar aleatoriamente uno de los objetos de la API e indicar que tipo de información nos mostrará el display según el botón que pulsemos */
+ 
+carrier.Buttons.update();
+/* Botón principal. Actualiza la función planetUpdate() */
+ if (carrier.Button0.onTouchDown()) {
+   carrier.display.fillScreen(ST77XX_MAGENTA);
+   carrier.display.setCursor(30, 60);
+   carrier.display.setTextColor(ST77XX_WHITE);
+   carrier.display.setTextSize(2);
+   carrier.display.print("Searching");
+   delay(500);
+   carrier.display.print(".");
+   delay(500);
+   carrier.display.print(".");
+   delay(500);
+   carrier.display.print(".");
+   delay(500);
+   carrier.display.print(".");
+  
+ planetUpdate(); 
+/* Una vez se ha actualizado aparecen diferentes mensajes en pantalla*/
+   carrier.display.fillScreen(ST77XX_MAGENTA);
+   carrier.display.setCursor(30, 60);
+   carrier.display.setTextColor(ST77XX_WHITE);
+   carrier.display.setTextSize(2);
+   carrier.display.print("Actualización completa"); // Mensaje "Update complete"
+   carrier.display.setCursor(20, 90);
+   carrier.display.print("Datos de: "); // Datos del cuerpo celeste
+   carrier.display.setCursor(20, 130);
+   carrier.display.print(bodyName);
+ }
+
+/* Botón 1: Nombre del objeto. En el caso de luna indica el planeta que orbita */
+
+ if (carrier.Button1.onTouchDown()) {
+   carrier.display.fillScreen(ST77XX_RED);
+   carrier.display.setCursor(20, 60);
+   carrier.display.setTextColor(ST77XX_WHITE);
+   carrier.display.setTextSize(2);
+   carrier.display.print(bodyName); // Se muestra el nombre del cuerpo celeste
+   carrier.display.setCursor(20, 90);
+   carrier.display.print("Es una luna de: "); // Mensaje "It is a moon of: "
+   carrier.display.setCursor(20, 110);
+   carrier.display.println(planet); // Se muestra el nombre del planeta que orbita
+   delay(500);
+ }
+
+/* Botón 2: Información sobre su descubrimiento. Nombre y fecha */
+
+ if (carrier.Button2.onTouchDown()) {
+   carrier.display.fillScreen(ST77XX_GREEN);
+   carrier.display.setCursor(20, 60);
+   carrier.display.setTextColor(ST77XX_WHITE);
+   carrier.display.setTextSize(2);
+   carrier.display.print(bodyName); // Se muestra el nombre del objeto
+   carrier.display.setCursor(20, 90);
+   carrier.display.print("Descubierto por: "); // Mensaje "Discovered by:"
+   carrier.display.setCursor(20, 110);
+   carrier.display.println(explorerName); // Se muestra el nombre del descubridor
+   carrier.display.setCursor(20, 130);
+   carrier.display.print("Fecha: "); // Mensaje "Date: "
+   carrier.display.print(explorerDate); // Se muestra la fecha del descubrimiento
+   delay(500);
+ }
+
+/* Botón 3: Información sobre su gravedad. */
+
+ if (carrier.Button3.onTouchDown()) {
+   carrier.display.fillScreen(ST77XX_BLUE);
+   carrier.display.setCursor(20, 60);
+   carrier.display.setTextColor(ST77XX_WHITE);
+   carrier.display.setTextSize(2);
+   carrier.display.print(bodyName); // Se muestra el nombre del objeto
+   carrier.display.setCursor(20, 90);
+   carrier.display.print("Su gravedad es: "); // Mensaje "Gravity is:"
+   carrier.display.setCursor(20, 130);
+   carrier.display.print(gravity); // Se muestra el valor de su gravedad
+   carrier.display.print(" m/s2"); // Mensaje "m/s2 " (unidad)
+   delay(500);
+ }
+
+/* Botón 4: Información sobre su gravedad. */
+
+ if (carrier.Button4.onTouchDown()) {
+   carrier.display.fillScreen(ST77XX_BLACK);
+   carrier.display.setCursor(20, 60);
+   carrier.display.setTextColor(ST77XX_WHITE);
+   carrier.display.setTextSize(2);
+   carrier.display.print(bodyName); // Se muestra el nombre del objeto
+   carrier.display.setCursor(20, 110);
+   carrier.display.print("Su gravedad es:: "); // Mensaje "Density is:"
+   carrier.display.setCursor(20, 130);
+   carrier.display.print(density); // Se muestra el valor de su densidad
+   carrier.display.print(" g/cm3"); // Mensaje "g/cm3 " (unidad)
+ }
+
+}</code></pre>
+</div>
+</div>
+<h2>La función planetUpdate()</h2>
+<p dir="ltr"><span>Esta función será la encargada de hacer las peticiones al servidor donde se encuentran nuestros datos, la API, y, tal como hemos visto anteriormente, será reclamada tanto al inicio del </span><span>setup()</span><span> como cuando se presione el botón principal.</span></p>
+<p dir="ltr"><span>En nuestro caso hemos optado porque el código elija aleatoriamente el cuerpo celeste del Sistema Solar sobre el que vamos a solicitar la información (esto es así debido a que la gran cantidad de cuerpos celeste que pertenecen a él dificultaría la navegación. En el caso de los sistemas exoplanetarios, no programaremos una selección aleatoria del objeto). Programaremos una selección aleatoria entre los enteros 0 y 20 (21 números posibles) porque el número de objetos que había en este array era 21.</span></p>
+<div class="highlighted-code code-style-2 language-cpp">
+<div>
+<pre><code>char *objects[] = {"jupiter", "io", "europe",
+                  "callisto", "mars", "mercury",
+                  "venus", "terre", "uranus", "neptune",
+                  "saturne", "phoebe", "ganymede", "titan",
+                  "pluton", "triton", "titania", "charon", "ariel",
+                  "tethys", "protee"
+                 };</code></pre>
+</div>
+</div>
+<p dir="ltr"><span>Debemos tener en cuenta que si introducimos más objetos deberemos aumentar el extremo superior (20) de la selección aleatoria. Por ejemplo, si introducimos 50 objetos, la selección aleatoria la haremos entre 0 y 49.</span></p>
+<p dir="ltr"><span>Dado que la función </span><strong>planetUpdate()</strong><span> hace la petición GET a la</span><a href="http://api.le-systeme-solaire.net"><span> </span><span>API</span></a><span> deberemos asegurarnos de que tiene acceso a internet. Para ello escribiremos </span><strong>if(client.connect(server, 80)</strong><span> que nos dará la confirmación de que esa conexión está establecida y si efectivamente lo está el código comenzará a realizar las peticiones GET.</span></p>
+<p dir="ltr"><span>Es importante tener en cuenta que dado que tenemos diferentes tipos de cuerpos celestes, las peticiones GET deberán ser diferentes para cada uno de ellos. Así, primero solicitaremos al cliente "GET", después le diremos que los objetos están en su directorio "/rest/bodies/" y le indicaremos que objeto hemos seleccionado aleatoriamente a través </span><strong>client.print(planets[randomPlanet])</strong><span>. Debemos tener en cuenta que el número 0 de la randomización nos dará los datos de Júpiter mientra que, por ejemplo, el número 4 corresponderá a los de Marte debido a la estructura del array.</span></p>
+<p dir="ltr"><span>Por último usaremos el comando </span><strong>client.println(" HTTP/1.0");</strong><span> para notificarle al servidor que información le estamos solicitando. Es importante notar que este </span><span>HTTP/1.0</span><span> puede cambiar de un sistema a otro aunque en nuestro caso es así.</span></p>
+<p dir="ltr"><span>El comando <strong>client.println("Host: api.le-systeme-solaire.net");</strong> indicará al cliente que host estamos solicitando exactamente y, por último, cuando ya hayamos hecho la solicitud y tengamos los datos, el comando <strong>client.println("Connection: close");</strong>  indicará qué tipo de conexión estamos usando y si esta ha finalizado.</span></p>
+<div class="highlighted-code code-style-2 language-cpp line-numbers">
+<div>
+<pre><code>/*La función planetUpdate(); la encargada de las peticiones */
+
+void planetUpdate() {
+
+int randomPlanet = random(0, 20);
+
+/*Mensaje de comprobación de la conexión al servidor */
+Serial.println("\nStarting connection to server...");
+
+/* Si hay conexión se notificará a través del puerto serie: */
+
+ if (client.connect(server, 80)) {
+   Serial.println("connected to server"); /* Hay conexión */
+
+// Hacemos las peticiones GET
+   client.print("GET "); // Solicita a la API
+   client.print("/rest/bodies/");
+
+/* rest/bodies/ es el directorio donde están los cuerpos celestes en la API */
+   client.print(planets[randomPlanet]); /* Selecciona el objeto */
+   client.println(" HTTP/1.0");
+/* HTTP/1.0 puede cambiar de un sistema a otro. Es importante tenerlo en cuenta */
+
+
+/* Ahora debemos indicar la dirección del host al que hacemos las peticiones y cerrar la conexión */
+
+   client.println("Host: api.le-systeme-solaire.net");
+   client.println("Connection: close");
+   client.println();
+ } else {
+
+
+/* En el caso de que haya sido imposible establecer la conexión, pediremos al sistema que nos imprima un mensaje indicándolo */
+
+   Serial.println("unable to connect");
+ }
+ delay(1000);</code></pre>
+</div>
+</div>
+<h2>Damos formato a los datos a través de JSON</h2>
+<p dir="ltr"><span>Una vez que hemos creado la petición GET es necesario manipular los datos que recopilemos de la </span><a href="http://api.le-systeme-solaire.net"><span>API</span></a><span>. Para ello crearemos una nueva cadena que hemos denominado "line" donde almacenaremos todos los datos provenientes del cliente. Como ya se mencionó anteriormente le daremos a estos datos un formato JSON y una librería que nos permita analizar los datos y recuperar de dentro de un objeto JSON.</span></p>
+<p dir="ltr"><span>En este sentido usaremos el comando </span><strong>bodyName = JSON.stringify(myObject["englishName"]);</strong><span> que lo que hace es localizar el objeto, extraer de él la información de tipo texto que esté escrita en inglés </span><span>"englishName"</span><span> (dadas las características del alumnado del centro, es más sencillo interpretar y comprender esta información) y almacenar dicha información en una nueva variable denominada </span><span>"bodyName"</span><span>. En el caso de que el dato sea de carácter numérico, bastará con usar algo similar a esto </span><span><strong>gravity = myObject["gravity"]; </strong></span><span>donde almacenaremos, en este caso, la información sobre la gravedad de dicho objeto en la variable </span><span>"gravity"</span><span>.</span></p>
+<p dir="ltr"><span>Como hemos señalado anteriormente, hemos creado seis cadenas y valores diferentes que se mostrarán en pantalla y cada uno de ellos está asociado a uno de los botones. Evidentemente, deberemos crear tantos campos diferentes en el JSON como datos queramos sacar por el display, en este caso seis.</span></p>
+<p dir="ltr"><span>Por último, como estamos en un bucle tipo </span><span>while()</span><span>, cuando recuperemos la información necesitamos romper dicho bucle. Para ello usaremos el comando </span><span><strong>if(line.startsWith("{")) { break; }</strong></span><strong>.</strong></p>
+<p dir="ltr"><span>Tenemos que recordar que cuando el JSON se almacena en la cadena "line", siempre deberá comenzar con un corchete {. Así, cuando el JSON sea reclamado, el comando anterior se dará cuenta y cerrará el bucle <strong>while()</strong> y nos llevará de regreso al lugar donde se llamó a la función en el programa, y este se “actualizará”.</span></p>
+<div class="highlighted-code code-style-2 language-cpp line-numbers">
+<div>
+<pre><code>/* Creamos una cadena "line" donde almacenaremos los datos */
+ String line = "";
+
+/* Iniciamos el bucle while() para almacenar los datos JSON */
+ while (client.connected()) {
+   line = client.readStringUntil('\n');
+   Serial.println(line);
+
+/* Iniciamos el parsing de los datos alojados en JSON */
+
+   JSONVar myObject = JSON.parse(line);
+
+/* Aquí alojaremos la información de las características del cuerpo celeste elegido */
+
+   bodyName = JSON.stringify(myObject["englishName"]);
+   planet = JSON.stringify(myObject["aroundPlanet"]["planet"]);
+   explorerName = JSON.stringify(myObject["discoveredBy"]);
+   explorerDate = JSON.stringify(myObject["discoveryDate"]);
+   gravity = myObject["gravity"];
+   density = myObject["density"];
+
+   delay(100);
+/* Salimos del bucle while() */
+   if (line.startsWith("{")) {
+     break;
+   }
+ }
+}</code></pre>
+</div>
+</div>
+<h2>Descarga el código del Tracker del Sistema Solar</h2>
+<p dir="ltr"><span>Con esto ya tendríamos el código completo y preparado para subirlo a la placa. Dada la longitud del código podríamos tener algunos errores en él. Los más comunes serían</span></p>
+<ul>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Abrir-cerrar corchetes.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Escribir de forma incorrecta las credenciales de la red (nombre de la red y contraseña del WiFI).</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>Podemos comprobar estos errores a través del propio editor que tiene arduino online y descargar el código operativo a través del botón que aparece bajo estas líneas.</span></p>
+<div class="main-container" style="text-align: center;"><a href="https://create.arduino.cc/editor/pramtor469/cceb8978-92a2-4193-8141-3d26e32ad7b6/preview" style="border-radius: 5px; padding: 10px; font-family: Arial; background-color: #555555; color: #ffffff; text-decoration: none;"> <strong>Descarga el código del Tracker del Sistema Solar</strong></a></div>
+</div>
+<p>La práctica anteriormente referida y el código que aparece en la web ha sido realizado por alumnado de 4ºESO del centro (se trabajó en grupos de 3 con el alumnado de 4ºESO) tomando como base algunos tutoriales mostrados anteriormente y los ejemplos facilitados a través de la web oficial de arduino.</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-nc-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Licencia Creative Commons Reconocimiento No comercial Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="a_el_sistema_solar.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><span class="page-counter">Página <strong>10</strong> de <strong>15</strong></span> <span class="sep">| </span><a href="c_tracker_y_sistemas_exoplanetarios.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_intef_js.js"></script></body></html>
